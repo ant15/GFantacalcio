@@ -2,12 +2,21 @@
 
 package gfantacalcio;
 
-
+import gfantacalcio.GUI.Login;
+import gfantacalcio.GUI.Registrazione;
+import gfantacalcio.object.Formazione;
+import gfantacalcio.object.Giocatore;
+import gfantacalcio.object.Utente;
+import gfantacalcio.GUI.Start; 
 
 public class Main {
-
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
     
+    private Utente U;
+    
+    public static void main(String[] args) {
+        Start s = new Start();
+        //Login r = new Login();
+        //Registrazione r = new Registrazione();
+    }
+
 }

@@ -2,7 +2,7 @@
 package gfantacalcio.GUI;
 
 import gfantacalcio.object.Utente;
-import gfantacalcio.thread.InviaQuery;
+import gfantacalcio.thread.SalvaUtenti;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -70,8 +70,8 @@ public class Registrazione extends JFrame implements ActionListener {
                 if (!(txtMail.getText().matches(emailPattern))) {
                     JOptionPane.showMessageDialog(null ,"E-MAIL NON VALIDA!");
                 }else{
-                    InviaQuery iq = new InviaQuery("INSERT INTO utenti (username,password,email) VALUES('" + txtUser.getText() + "',  SHA1('" + txtPass.getText() + "') '" + txtMail.getText() + "')" );
-                    iq.start();
+                    SalvaUtenti salva = new InviaQuery("INSERT INTO utenti (username,password,email) VALUES('" + txtUser.getText() + "',  SHA1('" + txtPass.getText() + "') '" + txtMail.getText() + "')" );
+                    salva.start();
                 }
             }
         }

@@ -14,9 +14,9 @@ public class Main {
     private Utente U;
     
     public static void main(String[] args) {
-        Start s = new Start();
+        //Start s = new Start();
         //Login r = new Login();
-        //Registrazione r = new Registrazione();
+        Registrazione r = new Registrazione();
     }
 
 }

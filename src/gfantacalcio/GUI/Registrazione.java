@@ -2,6 +2,7 @@
 package gfantacalcio.GUI;
 
 import gfantacalcio.object.Utente;
+import gfantacalcio.thread.InviaQuery;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -64,10 +65,14 @@ public class Registrazione extends JFrame implements ActionListener {
         if(premuto == Reg){
             if((txtUser.getText().isEmpty())||(txtPass.getText().isEmpty())||(txtMail.getText().isEmpty())){
                 JOptionPane.showMessageDialog(null ,"TUTTI I CAMPI SONO OBBLIGATORI!");
-            }
-            String emailPattern = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
-            if (!(txtMail.getText().matches(emailPattern))) {
-                JOptionPane.showMessageDialog(null ,"E-MAIL NON VALIDA!");
+            }else{
+                String emailPattern = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+                if (!(txtMail.getText().matches(emailPattern))) {
+                    JOptionPane.showMessageDialog(null ,"E-MAIL NON VALIDA!");
+                }else{
+                    InviaQuery iq = new InviaQuery("INSERT INTO utenti (username,password,email) VALUES('" + txtUser.getText() + "',  SHA1('" + txtPass.getText() + "') '" + txtMail.getText() + "')" );
+                    iq.start();
+                }
             }
         }
         

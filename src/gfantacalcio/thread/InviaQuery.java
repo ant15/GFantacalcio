@@ -16,7 +16,7 @@ import javax.net.ssl.HttpsURLConnection;
  */
 public class InviaQuery extends Thread {
     private final String USER_AGENT = "Mozilla/5.0";
-    private String url = "https://localhost/gfantacaclio/query.php";
+    private String url = "https://10.1.27.43/gfantacalcio/query.php";
     private String sql;
     private boolean invia;
     
@@ -39,7 +39,7 @@ public class InviaQuery extends Thread {
     }
  
     private void sendPost() throws Exception {
-        URL url = new URL("http://localhost/gfantacalcio/query.php");
+        URL url = new URL(this.url);
         
         
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
